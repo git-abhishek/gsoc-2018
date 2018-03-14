@@ -60,11 +60,19 @@ Why you want to do this project?
 ## Appendix
 ### *1. Personal Details*
   * Name: Abhishek Singh
+  * Degree Program: Master's in Computer Science
   * University: University of Massachusetts, Amherst
-  * Email: abhisheksing@umass.edu
   * Phone: +1 413-824-1385
+  * Email: abhisheksing@umass.edu
   * GitHub: https://github.com/git-abhishek
   * LinkedIn: https://www.linkedin.com/in/asingh690/
   
+### *2. Programming Skills*
+  * Python, Java, C/C++
+  * Git and GitHub
+  * Cython (Beginner)
+  
+### *3. Work Experience*
+
   
 [wbs]: https://en.wikipedia.org/wiki/Work_breakdown_structure
