@@ -58,7 +58,13 @@ Did you do other code related projects or university courses?
 Why you want to do this project?
 
 ## Appendix
-
-Extra content
-
+### *1. Personal Details*
+  * Name: Abhishek Singh
+  * University: University of Massachusetts, Amherst
+  * Email: abhisheksing@umass.edu
+  * Phone: +1 413-824-1385
+  * GitHub: https://github.com/git-abhishek
+  * LinkedIn: https://www.linkedin.com/in/asingh690/
+  
+  
 [wbs]: https://en.wikipedia.org/wiki/Work_breakdown_structure
