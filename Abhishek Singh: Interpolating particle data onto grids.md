@@ -74,8 +74,8 @@ Why you want to do this project?
   
 ### *3. Work Experience*
    * Software Robotics Corp. (Junior Platform Engineer, 4 months)
-   * Citi Bank (Applicaiton Developer Supervisor, 31 months)
-   * Amazon (SDE Intern, 6 months)
+   * Citi Bank (Applicaiton Developer Supervisor, 30 months)
+   * Amazon (SDE Intern, 5 months)
   
 For detailed information, please feel free to take a look at my [resume](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Resume.pdf).
   
