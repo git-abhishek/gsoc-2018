@@ -67,12 +67,13 @@ Why you want to do this project?
   * GitHub: https://github.com/git-abhishek
   * LinkedIn: https://www.linkedin.com/in/asingh690/
   
-### *2. Programming Skills*
+### *2. Relevant Programming Skills*
   * Python, Java, C/C++
   * Git and GitHub
   * Cython (Beginner)
   
 ### *3. Work Experience*
 
+For more details, please take a look at my [resume](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Resume.pdf).
   
 [wbs]: https://en.wikipedia.org/wiki/Work_breakdown_structure
