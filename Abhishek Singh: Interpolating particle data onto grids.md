@@ -73,7 +73,10 @@ Why you want to do this project?
   * Cython (Beginner)
   
 ### *3. Work Experience*
-
-For more details, please take a look at my [resume](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Resume.pdf).
+   * Software Robotics Corp. (Junior Platform Engineer, 4 months)
+   * Citi Bank (Applicaiton Developer Supervisor, 31 months)
+   * Amazon (SDE Intern, 6 months)
+  
+For detailed information, please feel free to take a look at my [resume](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Resume.pdf).
   
 [wbs]: https://en.wikipedia.org/wiki/Work_breakdown_structure
