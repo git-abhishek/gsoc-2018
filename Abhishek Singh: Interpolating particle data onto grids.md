@@ -66,6 +66,7 @@ Why you want to do this project?
   * Email: abhisheksing@umass.edu
   * GitHub: https://github.com/git-abhishek
   * LinkedIn: https://www.linkedin.com/in/asingh690/
+  * [Resume](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Resume.pdf)
   
 ### *2. Relevant Programming Skills*
   * Python, Java, C/C++
@@ -76,7 +77,5 @@ Why you want to do this project?
    * Software Robotics Corp. (Junior Platform Engineer, 4 months)
    * Citi Bank (Applicaiton Developer Supervisor, 30 months)
    * Amazon (SDE Intern, 5 months)
-  
-For detailed information, please feel free to take a look at my [resume](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Resume.pdf).
   
 [wbs]: https://en.wikipedia.org/wiki/Work_breakdown_structure
