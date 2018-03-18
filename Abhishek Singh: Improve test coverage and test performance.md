@@ -52,20 +52,20 @@ I have 3 years 3 months of work experience as a software developer engineer at v
 
 As part of my coursework in [Neural Networks](https://compsci682.github.io/) I implemented deep learning library in python. For the course [Applied Infromation Retrieval](http://ciir.cs.umass.edu/~dfisher/cs546/syllabus.html), I created a toy search engine in Java that could efficiently index the corpus and return ranked query results. This semester in [AI](http://rbr.cs.umass.edu/shlomo/classes/683/index.html) I am implementing search algorithms like A*, constraint satisfaction problems, minimax adverserial search and others. In [Intelligent Visual Computing](https://people.cs.umass.edu/~kalo/courses/visual_computing/index.html) I am writing Matlab code for 3D shape reconstruction, deepnet eye detector and marching cubes. Furthermore, I am implementing a simulator based [robot](http://www-robotics.cs.umass.edu/~grupen/603/handouts/syllabus.html) in C with 9 degrees of freedom. Since all these projects are forbidden to be shared publicly, I do not have them on GitHub. (I will be required to take professors' permission, in case I need to send it privately to the reviewers.)    
 
-Yt is my first open source community and thus I do not have any contributions that are publicly available. However, I have made 2 PRs till now to fix issues [#1680](https://github.com/yt-project/yt/issues/1680) and [#1599](https://github.com/yt-project/yt/pull/1705).
+yt is my first open source community and thus I do not have any contributions that are publicly available. However, I have made 2 PRs till now to fix issues [#1680](https://github.com/yt-project/yt/issues/1680) and [#1599](https://github.com/yt-project/yt/pull/1705).
 
 ## Other Experiences
 
 
 ## Why this project?
 
-For any software product with increasing userbase, stability and reliability becomes utmost. Furthermore, no organization wants to ship more features at the cost of robustness. This makes effective test suite one of the most important backbone of any product. Better testing framework not only leads to early bug detection but also contributes to rapid code development. At present the code coverage of Yt is only one-third and there is a lot of scope to improve the runtime which makes me highly interested in this project.
+For any software product with increasing userbase, stability and reliability becomes utmost. Furthermore, no organization wants to ship more features at the cost of robustness. This makes effective test suite one of the most important backbone of any product. Better testing framework not only leads to early bug detection but also contributes to rapid code development. At present the code coverage of yt is only one-third and there is a lot of scope to improve the runtime which makes me highly interested in this project.
 
 Increasing code coverage at the same time reducing proportional test runtime makes this an interesting problem. This demands higly optimal test code and intelligent handcrafting of test cases. This makes it a challenging problem requiring extensive analysis and well-thought-out solution.
 
-Furthermore, this project touches the entire codebase of Yt. It would not only help me understand Yt better but would also make me competent to keep contributing in future. I believe when one knows the end-to-end of a system, then one can think of innovative and polished solutions of the shortcomings in the system.
+Furthermore, this project touches the entire codebase of yt. It would not only help me understand yt better but would also make me competent to keep contributing in future. I believe when one knows the end-to-end of a system, then one can think of innovative and polished solutions of the shortcomings in the system.
 
-Given an opportunity to work on this project, I am confident with my possessed skills that I will be able to enhance Yt that will make its developer more confident and at the same time increase the penchant of its userbase.
+Given an opportunity to work on this project, I am confident with my possessed skills that I will be able to enhance yt that will make its developer more confident and at the same time increase the penchant of its userbase.
 
 ## Appendix
 ### 1. Personal Details
