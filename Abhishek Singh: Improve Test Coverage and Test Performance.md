@@ -10,6 +10,21 @@ Next, I will enhance the yt test suite by writing test cases for the flows that 
 
 ## Technical Details
 
+### Coveralls Integration
+
+Coveralls is a tool to analyze code coverage with each pull request. Thus, the main advantage of this tool is that with each pull request one can know how much of the new code is being been tested.
+
+I created a sample [github project](https://github.com/git-abhishek/Poc-Coverage) to show Coveralls integration. Initially, I created two functions ``add(a,b)`` and ``sub(a,b)`` with unit test case for only ``add`` function. Due to this, the code coverage came out to be 86%. Then I created a PR to add the test case for ``sub`` function. The affect of this PR could be easily analyzed at the (coveralls build page)[https://coveralls.io/builds/16036140].
+![Fig 2. Coveralls build page for the PR](https://github.com/git-abhishek/Poc-Coverage/blob/master/image/covealls%20build%20of%20PR.PNG "Logo Title Text 1")
+In addition, we also get a small summary at the [PR page](https://github.com/git-abhishek/Poc-Coverage/pull/2) depicting the overall code coverage owing to these changes. Using this we can easily track if the new changes are being properly tested or not.
+![Fig 2. Coveralls summary at the PR page](https://github.com/git-abhishek/Poc-Coverage/blob/master/image/Coverage%20Summary%20PR.PNG "Logo Title Text 1")
+
+### Current Code Coverage Analysis
+### Improving Code Coverage
+### Improving Test Runtime
+[code coverage](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/index.html)
+[code coverage with branching](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage_branching/index.html)
+
 Long description of the project. **Must** include all technical details of the
 projects like libraries involved.
 
