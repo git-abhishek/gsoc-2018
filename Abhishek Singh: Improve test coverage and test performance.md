@@ -48,7 +48,7 @@ your project as a success is to submit code before the end of GSoC.
 
 ## Development Experience
 
-I have 3 years 3 months of work experience as a software developer engineer at various technology [companies](#test-test). During these years, I worked on 
+I have 3 years 3 months of work experience as a software developer engineer at various technology [companies](#3-work-experience). During these years, I worked on 
 Do you have code on github? Can you show previous contributions to other projects?
 Did you do other code related projects or university courses?
 
@@ -60,7 +60,7 @@ Did you do other code related projects or university courses?
 Why you want to do this project?
 
 ## Appendix
-### *1. Personal Details*
+### 1. Personal Details
   * Name: Abhishek Singh
   * Degree Program: Master's in Computer Science
   * University: University of Massachusetts, Amherst
@@ -70,15 +70,14 @@ Why you want to do this project?
   * LinkedIn: https://www.linkedin.com/in/asingh690/
   * [Resume](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Resume.pdf)
   
-### *2. Relevant Programming Skills*
+### 2. Relevant Programming Skills
   * Python, Java, C/C++
   * Git and GitHub
   * Cython (Beginner)
   
-### *3. Work Experience*
+### 3. Work Experience
    * Software Robotics Corp. (Junior Platform Engineer, 4 months)
    * Citi Bank (Applicaiton Developer Supervisor, 30 months)
    * Amazon (SDE Intern, 5 months)
-  
-### Test test
+   
 [wbs]: https://en.wikipedia.org/wiki/Work_breakdown_structure
