@@ -82,4 +82,7 @@ Why you want to do this project?
    * Citi Bank (Applicaiton Developer Supervisor, 30 months)
    * Amazon (SDE Intern, 5 months)
    
+### 4. Summer'18 Commitment
+  * Except for GSoc, I do not have any other engagements for the summer. I will be working fulltime (40 hrs/week) on this project.
+  
 [wbs]: https://en.wikipedia.org/wiki/Work_breakdown_structure
