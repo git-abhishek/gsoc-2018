@@ -59,12 +59,13 @@ Yt is my first open source community and thus I do not have any contributions th
 
 ## Why this project?
 
-Why you want to do this project?
-For any software product with increasing userbase *stability* and *reliability* becomes utmost. Furthermore, no organization wants to ship more features at the cost of robustness. This makes effective test suite one of the most important backbone of any product.
+For any software product with increasing userbase, stability and reliability becomes utmost. Furthermore, no organization wants to ship more features at the cost of robustness. This makes effective test suite one of the most important backbone of any product. Better testing framework not only leads to early bug detection but also contributes to rapid code development. At present the code coverage of Yt is only one-third and there is a lot of scope to improve the runtime which makes me highly interested in this project.
 
+Increasing code coverage at the same time reducing proportional test runtime makes this an interesting problem. This demands higly optimal test code and intelligent handcrafting of test cases. This makes it a challenging problem requiring extensive analysis and well-thought-out solution.
 
+Furthermore, this project touches the entire codebase of Yt. It would not only help me understand Yt better but would also make me competent to keep contributing in future. I believe when one knows the end-to-end of a system, then one can think of innovative and polished solutions of the shortcomings in the system.
 
-
+Given an opportunity to work on this project, I am confident with my possessed skills that I will be able to enhance Yt that will make its developer more confident and at the same time increase the penchant of its userbase.
 
 ## Appendix
 ### 1. Personal Details
