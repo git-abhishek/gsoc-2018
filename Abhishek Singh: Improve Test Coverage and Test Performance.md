@@ -6,7 +6,7 @@ This project focuses to improve yt's test framework. At present, yt's code cover
 
 First, I propose the use of [Coveralls](https://coveralls.io/), which is tool to monitor the code coverage and is free for open source repositories. This would not only help in analyzing the key areas that need immediate attention for coverage but will also help in maintaining higher code coverage for future developments.
 
-Next, I will enhance the current yt test suite by writing test cases for the flows that are not being tested. Many of the test cases written right now
+Next, I will enhance the yt test suite by writing test cases for the flows that are not being tested currently. 
 
 Short description of your project. Max 10 sentences. This **SHOULD NOT** be a copy of the project idea text.
 
