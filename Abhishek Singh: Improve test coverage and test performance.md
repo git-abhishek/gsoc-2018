@@ -60,12 +60,19 @@ Yt is my first open source community and thus I do not have any contributions th
 ## Why this project?
 
 Why you want to do this project?
+For any software product with increasing userbase *stability* and *reliability* becomes utmost. Furthermore, no organization wants to ship more features at the cost of robustness. This makes effective test suite one of the most important backbone of any product.
+
+
+
+
 
 ## Appendix
 ### 1. Personal Details
   * Name: Abhishek Singh
-  * Degree Program: Master's in Computer Science
-  * University: University of Massachusetts, Amherst
+  * Current Degree Program: Master's in Computer Science
+  * Current University: [University of Massachusetts, Amherst](https://www.umass.edu/)
+  * Past Degree Program: Master's in Mathematics, Bachelor of Engineering in Computer Science
+  * Past University: [Birla Institute of Technology and Science, Pilani](http://www.bits-pilani.ac.in/pilani/)
   * Phone: +1 413-824-1385
   * Email/Google Hangout: abhisheksing@umass.edu
   * GitHub: https://github.com/git-abhishek
