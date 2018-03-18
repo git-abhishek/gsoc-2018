@@ -14,10 +14,13 @@ Next, I will enhance the yt test suite by writing test cases for the flows that 
 
 Coveralls is a tool to analyze code coverage with each pull request. Thus, the main advantage of this tool is that with each pull request one can know how much of the new code is being been tested.
 
-I created a sample [github project](https://github.com/git-abhishek/Poc-Coverage) to show Coveralls integration. Initially, I created two functions ``add(a,b)`` and ``sub(a,b)`` with unit test case for only ``add`` function. Due to this, the code coverage came out to be 86%. Then I created a PR to add the test case for ``sub`` function. The affect of this PR could be easily analyzed at the (coveralls build page)[https://coveralls.io/builds/16036140].
-![Fig 2. Coveralls build page for the PR](https://github.com/git-abhishek/Poc-Coverage/blob/master/image/covealls%20build%20of%20PR.PNG "Logo Title Text 1")
+I created a sample [github project](https://github.com/git-abhishek/Poc-Coverage) to show Coveralls integration. Initially, I created two functions ``add(a,b)`` and ``sub(a,b)`` with unit test case for only ``add`` function. Due to this, the code coverage came out to be 86%. Then I created a PR to add the test case for ``sub`` function. The affect of this PR could be easily analyzed at the [coveralls build page](https://coveralls.io/builds/16036140).
+
+![Fig 1. Coveralls build page for the PR](https://github.com/git-abhishek/Poc-Coverage/blob/master/image/covealls%20build%20of%20PR.PNG "Fig 1. Coveralls build page for the PR")
+
 In addition, we also get a small summary at the [PR page](https://github.com/git-abhishek/Poc-Coverage/pull/2) depicting the overall code coverage owing to these changes. Using this we can easily track if the new changes are being properly tested or not.
-![Fig 2. Coveralls summary at the PR page](https://github.com/git-abhishek/Poc-Coverage/blob/master/image/Coverage%20Summary%20PR.PNG "Logo Title Text 1")
+
+![Fig 2. Coveralls summary at the PR page](https://github.com/git-abhishek/Poc-Coverage/blob/master/image/Coverage%20Summary%20PR.PNG "Fig 2. Coveralls summary at the PR page")
 
 ### Current Code Coverage Analysis
 ### Improving Code Coverage
