@@ -67,7 +67,7 @@ Why you want to do this project?
   * Degree Program: Master's in Computer Science
   * University: University of Massachusetts, Amherst
   * Phone: +1 413-824-1385
-  * Email: abhisheksing@umass.edu
+  * Email/Google Hangout: abhisheksing@umass.edu
   * GitHub: https://github.com/git-abhishek
   * LinkedIn: https://www.linkedin.com/in/asingh690/
   * [Resume](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Resume.pdf)
