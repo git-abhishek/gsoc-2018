@@ -93,11 +93,12 @@ nosetests --with-coverage --cover-branches --cover-inclusive --cover-erase --cov
     * Buffer Week (Phase 1 or 2 tasks overflow)
   * Week 12: [July 30 - August 3]
     * Buffer Week (Phase 1 or 2 tasks overflow)
+    * Wrap up all the code development
+    * Finish the final report to be submitted
 
 ### **Students Submit Code and Final Evaluations**
   
   * Week 13: [August 6 - August 14]
-    * Wrap up all the code development
     * Submit the overall code contribution and reports to GSoC
   
 
