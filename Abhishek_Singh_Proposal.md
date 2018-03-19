@@ -31,11 +31,11 @@ nosetests --with-coverage --cover-inclusive --cover-erase --cover-html --cover-p
 nosetests --with-coverage --cover-branches --cover-inclusive --cover-erase --cover-html --cover-package=yt
 ```
 
-Using this analysis, I plan to identify yt modules that require more unit testing. This breakdown has been listed in Phase 1 and Phase 2 weekly deliverables. 
+Using this analysis, I plan to identify yt modules that require more unit testing. This breakdown has been listed in [Phase 1](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-1) and [Phase 2](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-2) weekly schedule. 
 
 ### 3. Improving Test Runtime
 
-Test runtime could be reduced by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a fake dataset.
+Test runtime could be reduced by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a pre-computed value. For example, instead of pixel by pixel comparison of images one could compare the [perceptual hash] values(http://phash.org/).
 
 ## Schedule of Deliverables
 
