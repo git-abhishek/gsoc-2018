@@ -49,9 +49,16 @@ link to literature you used during the research.
     * Connect with mentors and other community members
     * Discuss more on yt's testing framework
     * Research more on effective testing framework
+    * Understand test code flow for different geometries (cartesian, cylindrical, and spherical coordinates) and data styles (particle data, mesh data, including uniform resolution, octree, patch AMR, and unstructured meshes)
+    * Understand in detail the [yt's testing framework](http://yt-project.org/doc/developing/testing.html#testing)
     * Set up blog post and write the first blog
-    * Work on yt's bug/issue list (optional)
 
+### ***Common Task Each Week***
+  
+  * Write blog post showing progress, code flow understaing
+  * Write narrative documents in yt repository (if needed)
+  * Work on yt's bug/issue list (optional, if time permits)
+  
 ### **Phase 1**
   
   **Delieverables**
