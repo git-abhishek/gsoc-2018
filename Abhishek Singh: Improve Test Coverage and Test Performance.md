@@ -66,10 +66,16 @@ nosetests --with-coverage --cover-branches --cover-inclusive --cover-erase --cov
     3. Improve the Stream frontend by making it compatible with different geometries and data types
   
   * Week 1: [May 14 - May 18]
+    * Integrate Coveralls to yt
+    * 
   * Week 2: [May 21 - May 25]
   * Week 3: [May 28 - June 1]
   * Week 4: [June 4 - June 8]
   * Week 5: [June 11 - June 15]
+
+[hierarchy_inspection.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_hierarchy_inspection_py.html)
+[halo_quantities.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_quantities_py.html)
+
 
 ### **Phase 2**
   
