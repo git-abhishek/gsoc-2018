@@ -375,9 +375,6 @@ As part of my coursework in [Neural Networks](https://compsci682.github.io/), I 
 
 yt is my first open source community and thus I do not have any contributions that are publicly available. However, I have made 2 PRs for yt till now fixing issues [#1680](https://github.com/yt-project/yt/issues/1680) and [#1599](https://github.com/yt-project/yt/pull/1705).
 
-## Other Experiences
-
-
 ## Why this project?
 
 For any software product with increasing userbase, stability and reliability are utmost. Furthermore, no organization wants to ship more features at the cost of robustness. This makes effective test suite one of the most important backbones of any product. Better testing framework not only leads to early bug detection but also contributes to rapid code development. At present, the code coverage of yt is only one-third and there is a lot of scope to improve the runtime which makes me highly interested in this project.
