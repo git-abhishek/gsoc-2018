@@ -55,9 +55,9 @@ link to literature you used during the research.
 ### **Phase 1**
   
   **Delieverables**
-    *
-    *
-    *
+    * A
+    * AA
+    * AAA
   
   * Week 1: [May 14 - May 18]
   * Week 2: [May 21 - May 25]
@@ -70,9 +70,9 @@ link to literature you used during the research.
 ### **Phase 2**
   
   **Delieverables**
-    *
-    *
-    *
+    * A
+    * AA
+    * AAA
   
   * Week 6: [June 18 - June 22]
   * Week 7: [June 25 - June 29]
@@ -89,8 +89,8 @@ link to literature you used during the research.
 ### **Students Submit Code and Final Evaluations**
   
   * Week 13: [August 6 - August 14]
-    *
-    *
+    * A
+    * AA
   
 
 ## Development Experience
