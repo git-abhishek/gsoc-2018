@@ -23,10 +23,19 @@ In addition, we also get a small summary at the [PR page](https://github.com/git
 ![Fig 2. Coveralls summary at the PR page](https://github.com/git-abhishek/Poc-Coverage/blob/master/image/Coverage%20Summary%20PR.PNG "Fig 2. Coveralls summary at the PR page")
 
 ### 2. Current Code Coverage Analysis
-### 3. Improving Code Coverage
-### 4. Improving Test Runtime
+
+Present code coverage ([with](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage_branching/index.html) and [without](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/index.html) branching) of yt is 26%. 
+
+```python
+nosetests --with-coverage --cover-inclusive --cover-erase --cover-html --cover-package=yt
+nosetests --with-coverage --cover-branches --cover-inclusive --cover-erase --cover-html --cover-package=yt
+```
+
 [code coverage](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/index.html)
 [code coverage with branching](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage_branching/index.html)
+
+### 3. Improving Code Coverage
+### 4. Improving Test Runtime
 
 Long description of the project. **Must** include all technical details of the
 projects like libraries involved.
