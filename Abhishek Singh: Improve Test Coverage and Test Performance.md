@@ -65,7 +65,7 @@ link to literature you used during the research.
   
     1. Coveralls Integration
     2. Finish up writing test cases for currently untouched code, increasing code coverage from 26% to maximum possible
-    3. Improve the Stream frontend ([code](https://github.com/yt-project/yt/tree/14bdad210b44d6dacec42f99c42db039400307fa/yt/frontends/stream), [doc](http://yt-project.org/doc/reference/api/yt.frontends.stream.html?highlight=stream#module-yt.frontends.stream))
+    3. Improve the Stream frontend [code](https://github.com/yt-project/yt/tree/14bdad210b44d6dacec42f99c42db039400307fa/yt/frontends/stream), [doc](http://yt-project.org/doc/reference/api/yt.frontends.stream.html?highlight=stream#module-yt.frontends.stream)
   
   * Week 1: [May 14 - May 18]
   * Week 2: [May 21 - May 25]
