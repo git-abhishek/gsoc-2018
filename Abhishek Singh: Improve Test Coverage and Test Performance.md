@@ -76,9 +76,9 @@ nosetests --with-coverage --cover-branches --cover-inclusive --cover-erase --cov
   **Delieverables**
   
     1. Improve volume rendering and visualization modules answer testing and image comparison by expected answer
-    of a test case
+       of a test case
     2. Decrease test runtime proportionally (that is 26% code coverage runs in ~45 mins, final test runtime could
-    be more but due to increased code coverage)
+       be more but due to increased code coverage)
   
   * Week 6: [June 18 - June 22]
   * Week 7: [June 25 - June 29]
