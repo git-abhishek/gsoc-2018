@@ -44,24 +44,35 @@ link to literature you used during the research.
 ## Schedule of Deliverables
 
 ### **Community Bonding Period**
+  
   * April 23 - May 14
+    * Connect with mentors and other community members
+    * Discuss more on yt's testing framework
+    * Research more on effective testing framework
+    * Set up blog post and write the first blog
+    * Work on yt's bug/issue list (optional)
 
 ### **Phase 1**
-
+  
+  **Delieverables**
+  
   * Week 1: [May 14 - May 18]
   * Week 2: [May 21 - May 25]
   * Week 3: [May 28 - June 1]
   * Week 4: [June 4 - June 8]
   * Week 5: [June 11 - June 15]
-Delieverables
+
+ 
 
 ### **Phase 2**
-
+  
+  **Delieverables**
+  
   * Week 6: [June 18 - June 22]
   * Week 7: [June 25 - June 29]
   * Week 8: [July 2 - July 6]
   * Week 9: [July 9 - July 13]
-Delieverables
+  
 
 ### **Final Week**
 
@@ -72,6 +83,7 @@ Delieverables
 ### **Students Submit Code and Final Evaluations**
   
   * Week 13: [August 6 - August 14]
+    * 
   
 
 ## Development Experience
