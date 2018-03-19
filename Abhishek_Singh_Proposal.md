@@ -22,7 +22,7 @@ In addition, we also get a small summary at the [PR page](https://github.com/git
 
 ![Fig 2. Coveralls summary at the PR page](https://github.com/git-abhishek/Poc-Coverage/blob/master/image/Coverage%20Summary%20PR.PNG "Fig 2. Coveralls summary at the PR page")
 
-### 2. Current Code Coverage Analysis
+### 2. Current Code Coverage Analysis and Improvement
 
 Present code coverage ([with](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage_branching/index.html) and [without](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/index.html) branching) of yt is 26%. The commands used for this purpose are as follows:
 
@@ -31,13 +31,11 @@ nosetests --with-coverage --cover-inclusive --cover-erase --cover-html --cover-p
 nosetests --with-coverage --cover-branches --cover-inclusive --cover-erase --cover-html --cover-package=yt
 ```
 
-### 3. Improving Code Coverage
+Using this analysis, I plan to identify yt modules that require more unit testing. This breakdown has been listed in Phase 1 and Phase 2 weekly deliverables. 
 
-[code](https://github.com/yt-project/yt/tree/14bdad210b44d6dacec42f99c42db039400307fa/yt/frontends/stream), [doc](http://yt-project.org/doc/reference/api/yt.frontends.stream.html?highlight=stream#module-yt.frontends.stream)
+### 3. Improving Test Runtime
 
-
-### 4. Improving Test Runtime
-
+Test runtime could be reduced by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a fake dataset.
 
 ## Schedule of Deliverables
 
