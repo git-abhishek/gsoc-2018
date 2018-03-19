@@ -64,7 +64,7 @@ link to literature you used during the research.
   **Delieverables**
   
     1. Coveralls Integration
-    2. 
+    2. Finish up writing test cases for currently untouched code, increasing code coverage from 26% to maximum possible
     3. 
   
   * Week 1: [May 14 - May 18]
@@ -73,33 +73,32 @@ link to literature you used during the research.
   * Week 4: [June 4 - June 8]
   * Week 5: [June 11 - June 15]
 
- 
-
 ### **Phase 2**
   
   **Delieverables**
   
-    [X] A
-    [x] AA
-    [x] AAA
+    1. Improve volume rendering and visualization, answer testing and image comparison by expected answer of a test case
+    2. Decrease test runtime proportionally (that is 26% code coverage runs in ~45 mins, final test runtime could be more but due to increased code coverage)
   
   * Week 6: [June 18 - June 22]
   * Week 7: [June 25 - June 29]
   * Week 8: [July 2 - July 6]
   * Week 9: [July 9 - July 13]
-  
 
 ### **Final Week**
 
   * Week 10: [July 16 - July 20]
+    * Buffer Week (Phase 1 or 2 tasks overflow)
   * Week 11: [July 23 - July 27]
+    * Buffer Week (Phase 1 or 2 tasks overflow)
   * Week 12: [July 30 - August 3]
+    * Buffer Week (Phase 1 or 2 tasks overflow)
 
 ### **Students Submit Code and Final Evaluations**
   
   * Week 13: [August 6 - August 14]
-    * a
-    * AA
+    * Wrap up all the code development
+    * Submit the overall code contribution and reports to GSoC
   
 
 ## Development Experience
