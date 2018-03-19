@@ -91,7 +91,7 @@ Increasing code coverage at the same time reducing proportional test runtime mak
 
 Furthermore, this project touches the entire codebase of yt. It would not only help me understand yt better but would also make me competent to keep contributing in future. I believe when one knows the end-to-end of a system, then one can think of innovative and polished solutions of the shortcomings in the system.
 
-Given an opportunity to work on this project, I am confident with my possessed skills that I will be able to enhance yt that will make its developer more confident and at the same time increase the penchant of its userbase.
+Given an opportunity to work on this project, I am confident with my possessed skills that I will be able to enhance yt that will make its developer more confident and at the same time increase the penchant of its userbase. I believe this would be a wonderful learning opportunity for me and to give back to the open source world.
 
 ## Appendix
 ### 1. Personal Details
