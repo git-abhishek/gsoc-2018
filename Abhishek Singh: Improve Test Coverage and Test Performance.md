@@ -48,7 +48,7 @@ link to literature you used during the research.
   * April 23 - May 14
     * Connect with mentors and other community members
     * Discuss more on yt's testing framework
-    * Research more on effective testing framework
+    * Research more on effective testing frameworks
     * Understand test code flow for different geometries (cartesian, cylindrical, and spherical coordinates) and data styles (particle data, mesh data, including uniform resolution, octree, patch AMR, and unstructured meshes)
     * Understand in detail [yt's testing framework](http://yt-project.org/doc/developing/testing.html#testing)
     * Set up blog post and write the first blog
@@ -65,7 +65,7 @@ link to literature you used during the research.
   
     1. Coveralls Integration
     2. Finish up writing test cases for currently untouched code, increasing code coverage from 26% to maximum possible
-    3. 
+    3. Improve the Stream frontend ([code](https://github.com/yt-project/yt/tree/14bdad210b44d6dacec42f99c42db039400307fa/yt/frontends/stream), [doc](http://yt-project.org/doc/reference/api/yt.frontends.stream.html?highlight=stream#module-yt.frontends.stream))
   
   * Week 1: [May 14 - May 18]
   * Week 2: [May 21 - May 25]
