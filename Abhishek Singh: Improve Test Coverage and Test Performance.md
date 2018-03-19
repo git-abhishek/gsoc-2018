@@ -56,9 +56,9 @@ link to literature you used during the research.
   
   **Delieverables**
   
-    * Coveralls Integration
-    * 
-    * 
+    1. Coveralls Integration
+    2. 
+    3. 
   
   * Week 1: [May 14 - May 18]
   * Week 2: [May 21 - May 25]
