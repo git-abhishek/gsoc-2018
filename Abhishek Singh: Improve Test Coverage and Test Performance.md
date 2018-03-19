@@ -55,6 +55,7 @@ link to literature you used during the research.
 ### **Phase 1**
   
   **Delieverables**
+  
     * A
     * AA
     * AAA
@@ -70,6 +71,7 @@ link to literature you used during the research.
 ### **Phase 2**
   
   **Delieverables**
+  
     * A
     * AA
     * AAA
@@ -89,7 +91,7 @@ link to literature you used during the research.
 ### **Students Submit Code and Final Evaluations**
   
   * Week 13: [August 6 - August 14]
-    * A
+    * a
     * AA
   
 
