@@ -32,14 +32,12 @@ nosetests --with-coverage --cover-branches --cover-inclusive --cover-erase --cov
 ```
 
 ### 3. Improving Code Coverage
+
+[code](https://github.com/yt-project/yt/tree/14bdad210b44d6dacec42f99c42db039400307fa/yt/frontends/stream), [doc](http://yt-project.org/doc/reference/api/yt.frontends.stream.html?highlight=stream#module-yt.frontends.stream)
+
+
 ### 4. Improving Test Runtime
 
-Long description of the project. **Must** include all technical details of the
-projects like libraries involved.
-
-Here it is important to show if you had previous conversations with your
-mentors. You can show relevant pieces of code that you want to change. You can
-link to literature you used during the research.
 
 ## Schedule of Deliverables
 
@@ -53,7 +51,7 @@ link to literature you used during the research.
     * Understand in detail [yt's testing framework](http://yt-project.org/doc/developing/testing.html#testing)
     * Set up blog post and write the first blog
 
-### ***Common Task Each Week***
+### **Common Task Each Week**
   
   * Write blog post showing progress, code flow understanding (1 per week)
   * Write narrative documents in yt repository (if needed)
@@ -65,7 +63,7 @@ link to literature you used during the research.
   
     1. Coveralls Integration
     2. Finish up writing test cases for currently untouched code, increasing code coverage from 26% to maximum possible
-    3. Improve the Stream frontend [code](https://github.com/yt-project/yt/tree/14bdad210b44d6dacec42f99c42db039400307fa/yt/frontends/stream), [doc](http://yt-project.org/doc/reference/api/yt.frontends.stream.html?highlight=stream#module-yt.frontends.stream)
+    3. Improve the Stream frontend by making it compatible with different geometries and data types
   
   * Week 1: [May 14 - May 18]
   * Week 2: [May 21 - May 25]
@@ -77,7 +75,7 @@ link to literature you used during the research.
   
   **Delieverables**
   
-    1. Improve volume rendering and visualization, answer testing and image comparison by expected answer of a test case
+    1. Improve volume rendering and visualization modules answer testing and image comparison by expected answer of a test case
     2. Decrease test runtime proportionally (that is 26% code coverage runs in ~45 mins, final test runtime could be more but due to increased code coverage)
   
   * Week 6: [June 18 - June 22]
