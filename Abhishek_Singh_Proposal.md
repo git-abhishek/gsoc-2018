@@ -35,7 +35,7 @@ Using this analysis, I plan to identify yt modules that require more unit testin
 
 ### 3. Improving Test Runtime
 
-Test runtime could be reduced by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a pre-computed value. For example, instead of pixel by pixel comparison of images one could compare the [perceptual hash] values(http://phash.org/).
+Test runtime could be reduced by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a pre-computed value. For example, instead of pixel by pixel comparison of images one could compare the [perceptual hash](http://phash.org/) values.
 
 ## Schedule of Deliverables
 
