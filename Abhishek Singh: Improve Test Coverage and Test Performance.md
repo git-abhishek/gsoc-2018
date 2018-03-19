@@ -117,6 +117,6 @@ Given an opportunity to work on this project, I am confident with my possessed s
   * Amazon (SDE Intern, 5 months)
    
 ### 4. Summer'18 Commitment
-  * Except for GSoc, I do not have any other engagements for the summer. I will be working fulltime (40 hrs/week) on this project.
+  * Except for GSoC, I do not have any other engagements for the summer. I will be working fulltime (40 hrs/week) on this project.
   
 [wbs]: https://en.wikipedia.org/wiki/Work_breakdown_structure
