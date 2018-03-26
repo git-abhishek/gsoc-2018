@@ -2,11 +2,11 @@
 
 ## Abstract
 
-This project focuses to improve yt's test framework. At present, yt's python code coverage is only 25% (unit and answer testing) and the test runtime is approximately 45 minutes. The aim of this project is to increase code coverage and reduce test runtime.
+This project focuses to improve yt's test framework. At present, yt's Python code coverage is only 25% (unit and answer testing) and the test runtime is approximately 45 minutes. The aim of this project is to increase code coverage and reduce test runtime.
 
 First, I propose the use of [Coveralls](https://coveralls.io/), which is a tool to monitor the code coverage and is free for open source repositories. This would not only help in analyzing the key areas that need immediate attention for coverage but will also help in maintaining higher code coverage for future developments.
 
-yt's test suite could be divided into three areas, namely, python unit tests, cython test cases and answer testing. I will enhance the yt test suite by writing test cases for the flows that are not being tested currently. Runtime of tests could be improved by optimizing (or reducing) answer testing and image comparisons tests for visualization and volume rendering modules. This project also focuses on streamlining test cases for different geometries and data styles to improve runtime of tests. Furthermore, runtime of test suites vary on linux and OSX, thereby giving us a scope of improvement.
+yt's test suite could be divided into three areas, namely, Python unit tests, Cython test cases and answer testing. I will enhance the yt test suite by writing test cases for the flows that are not being tested currently. Runtime of tests could be improved by optimizing (or reducing) answer testing and image comparisons tests for visualization and volume rendering modules. This project also focuses on streamlining test cases for different geometries and data styles to improve the runtime of tests. Furthermore, the runtime of test suites varies on Linux and OSX, thereby giving us a scope of improvement.
 
 ## Technical Details
 
@@ -24,7 +24,7 @@ In addition, we also get a small summary at the [PR page](https://github.com/git
 
 ### 2. Current Code Coverage Analysis and Improvement
 
-Present [code coverage](https://github.com/git-abhishek/Poc-Coverage/blob/master/coverage_stats_with_ans_testing.pdf) (unit tests with answer testing in python) of yt is 25%. The commands used for this purpose are as follows:
+Present [code coverage](https://github.com/git-abhishek/Poc-Coverage/blob/master/coverage_stats_with_ans_testing.pdf) (unit tests with answer testing in Python) of yt is 25%. The commands used for this purpose are as follows:
 
 ```
 nosetests --with-coverage --with-answer-testing --cover-inclusive --cover-erase --cover-html \
@@ -32,25 +32,25 @@ nosetests --with-coverage --with-answer-testing --cover-inclusive --cover-erase 
 ```
 
 yt is written in Python as well as Cython. Though there is already a testing framework for both, there are few key issues with them, described as follows:
-  * Code coverage in both launguages is less than X%
+  * Code coverage in both languages is less than X%
   * Previous attempts have been made for Cython code coverage but that has resulted in appreciably slowing down the build runtime (done by [Kacper Kowalik](https://github.com/Xarthisius))
   * Answer testing takes a lot of time to run
 
-Starting point to expand test cases is by adding support for different geometries (cartesian, cylindrical, and spherical coordinates) and data styles (particle data, mesh data, including uniform resolution, octree, patch AMR, and unstructured meshes). Using the existing test functions `fake_random_ds`, `fake_amr_ds`, and `fake_particle_ds` I can define a `fake_test_datasets` generators. Using this a given functionality could be tested for different underlying geometries and data sytles.
+Starting point to expand test cases is by adding support for different geometries (cartesian, cylindrical, and spherical coordinates) and data styles (particle data, mesh data, including uniform resolution, octree, patch AMR, and unstructured meshes). Using the existing test functions `fake_random_ds`, `fake_amr_ds`, and `fake_particle_ds` I can define a `fake_test_datasets` generators. Using this a given functionality could be tested for different underlying geometries and data styles.
 
-Using this analysis, I plan to identify yt modules that require more unit testing. This breakdown has been listed in [Phase 1](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-1) and [Phase 2](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-2) weekly schedule. An attempt to include as much cython code as possible in the main test suite would be made, without affecting the runtime. 
+With this analysis, I plan to identify yt modules that require more unit testing. This breakdown has been listed in [Phase 1](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-1) and [Phase 2](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-2) weekly schedule. An attempt to include as much cython code as possible in the main test suite would be made, without affecting the runtime. 
 
-I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and [Nose Timer](https://pypi.python.org/pypi/nose-timer) tools with the existing Nose framework. Coverage tells us which areas of code are untouched by a given code flow and thus helps in improving code coverage. Using nose-timer, we can get the runtime of a test case and thus it would help me in publishing before and after reports for test runtime.
+I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and [Nose Timer](https://pypi.Python.org/pypi/nose-timer) tools with the existing Nose framework. Coverage tells us which areas of code are untouched by a given code flow and thus helps in improving code coverage. Using nose-timer, we can get the runtime of a test case and thus it would help me in publishing before and after reports for test runtime.
 
 ### 3. Improving Test Runtime
 
-* Unit tests could be made faster by identifying the tests that are doing heavy lifting and then simplfying them. For example, tests could be using big dataset where the same could be done by using a smaller dataset. Similarly, test cases could be using a dataset when not required.
+* Unit tests could be made faster by identifying the tests that are doing the heavy lifting and then simplifying them. For example, tests could be using big dataset where the same could be done by using a smaller dataset. Similarly, test cases could be using a dataset when not required.
 
-* Besides the gain achieved by pruning the unit tests, **test runtime** could be reduced heavly by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a pre-computed value. For example:
-  * Instead of pixel by pixel comparison of images, one could compare the [perceptual hash](http://phash.org/) values.
+* Besides the gain achieved by pruning the unit tests, **test runtime** could be reduced heavily by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a pre-computed value. For example:
+  * Instead of pixel-by-pixel comparison of images, one could compare the [perceptual hash](http://phash.org/) values.
   * Using Matplotlib's [image testing](https://matplotlib.org/1.5.3/devel/testing.html) approach we can compare the gold images (known-correct images) with the generated image [ImageComparisonTest](https://github.com/matplotlib/matplotlib/blob/5e52ce11ab59176a467dd2c68db8c5e1fbc20a24/lib/matplotlib/testing/decorators.py#L282) and thus remove the current plot/image answer tests like [FieldValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L410), [AllFieldValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L443), [ProjectionValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L467), [PixelizedProjectionValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L518), [GridValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L555), [VerifySimulationSameTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L577), [GridHierarchyTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L597), [ParentageRelationshipsTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L614), [SimulatedHaloMassFunctionTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L638), [AnalyticHaloMassFunctionTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L664), [VRImageComparisonTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L710) and others.
 
-* As pointed by [Colin Marc](https://github.com/colinmarc), OSX runtime is more than the linux environment. One of the reasons for this is due to the `before_install` section of the travis.yml file. In [OSX](https://travis-ci.org/yt-project/yt/jobs/355567514) it takes 277.30s however, in [linux](https://travis-ci.org/yt-project/yt/jobs/355567513) it takes 7.13s (for a random run). Thus a small amount of time could be spent in this task, if its possible to reduce this and get a straight away gain of 4 minutes in each build.
+* As pointed by [Colin Marc](https://github.com/colinmarc), OSX runtime is more than the Linux environment. One of the reasons for this is due to the `before_install` section of the travis.yml file. In [OSX](https://travis-ci.org/yt-project/yt/jobs/355567514) it takes 277.30s however, in [Linux](https://travis-ci.org/yt-project/yt/jobs/355567513) it takes 7.13s (for a random run). Thus a small amount of time could be spent on this task to see if it is feasible to reduce and get immediately a gain of 4 minutes in each build.
 
 
 ## Schedule of Deliverables
@@ -68,7 +68,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
 ### **Common Task Each Week**
   
   * Write blog post showing progress, code flow understanding (1 per week)
-  * Maintain a public Wiki listing tasks done each day (everyday)
+  * Maintain a public Wiki listing tasks done each day (every day)
   * Write narrative documents in yt repository (if needed)
   * Work on yt's bug/issue list (optional, if time permits)
   
@@ -250,7 +250,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
   
     1. Improve volume rendering and visualization modules answer testing and image comparison by an expected answer
        of a test case
-    2. Improvement in utilites python and cython modules with respect to higher code coverage and reduction in test runtime
+    2. Improvement in utilitie Python and Cython modules with respect to higher code coverage and reduction in test runtime
   
   * Week 6: [June 18 - June 22]
     * Work on visualization module
@@ -355,7 +355,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
 
 I have 3 years 3 months of work experience as a software developer engineer at various technology [companies](#3-work-experience). During these years, I worked on many different technologies ranging from Java, Python, C/C++/C#, ASP.NET, SQL to JavaScript, jQuery, HTML/CSS and learned many frameworks. This experience has not only made me a better developer but also taught me to reach for coding excellence. It exposed me to the skills that make a developer complete like working in global teams, timely delivery of production code in large codebases and taking product ownership. Thus, I feel I am competent enough to work on this project.
 
-As part of my coursework in [Neural Networks](https://compsci682.github.io/), I implemented deep learning library in python. For the course [Applied Information Retrieval](http://ciir.cs.umass.edu/~dfisher/cs546/syllabus.html), I created a toy search engine in Java that could efficiently index the corpus and return ranked query results. This semester in [AI](http://rbr.cs.umass.edu/shlomo/classes/683/index.html) I am implementing search algorithms like A*, constraint satisfaction problems, minimax adversarial search and others. In [Intelligent Visual Computing](https://people.cs.umass.edu/~kalo/courses/visual_computing/index.html) I am writing Matlab code for 3D shape reconstruction, deepnet eye detector, and marching cubes. Furthermore, I am implementing a simulator based [robot](http://www-robotics.cs.umass.edu/~grupen/603/handouts/syllabus.html) in C with 9 degrees of freedom. Since all these projects are forbidden to be shared publicly, I do not have them on GitHub. (I will be required to take professors' permission, in case I need to send it privately to the reviewers.)    
+As part of my coursework in [Neural Networks](https://compsci682.github.io/), I implemented deep learning library in Python. For the course [Applied Information Retrieval](http://ciir.cs.umass.edu/~dfisher/cs546/syllabus.html), I created a toy search engine in Java that could efficiently index the corpus and return ranked query results. This semester in [AI](http://rbr.cs.umass.edu/shlomo/classes/683/index.html) I am implementing search algorithms like A*, constraint satisfaction problems, minimax adversarial search and others. In [Intelligent Visual Computing](https://people.cs.umass.edu/~kalo/courses/visual_computing/index.html) I am writing Matlab code for 3D shape reconstruction, deepnet eye detector, and marching cubes. Furthermore, I am implementing a simulator based [robot](http://www-robotics.cs.umass.edu/~grupen/603/handouts/syllabus.html) in C with 9 degrees of freedom. Since all these projects are forbidden to be shared publicly, I do not have them on GitHub. (I will be required to take professors' permission, in case I need to send it privately to the reviewers.)    
 
 yt is my first open source community and thus I do not have any contributions that are publicly available. However, I have made 2 PRs for yt till now fixing issues [#1680](https://github.com/yt-project/yt/issues/1680) and [#1599](https://github.com/yt-project/yt/pull/1705).
 
@@ -370,7 +370,7 @@ Furthermore, this project touches the entire codebase of yt. It would not only h
 Given an opportunity to work on this project, I am confident with my possessed skills and the right mentorship, that I will be able to enhance yt making its developer more confident and at the same time increasing the penchant of its userbase. I believe this would be a wonderful learning opportunity for me and would be my pleasure to give back to the open source community.
 
 ## References
-I deeply thank [Nathan Goldbaum](https://github.com/ngoldbaum) and [Colin Marc](https://github.com/colinmarc) for their valuable feedbacks on this project proposal. I appreciate their help and efforts!
+I deeply thank [Nathan Goldbaum](https://github.com/ngoldbaum) and [Colin Marc](https://github.com/colinmarc) for their valuable feedback on this project proposal. I appreciate their help and efforts!
 
 
 ## Appendix
