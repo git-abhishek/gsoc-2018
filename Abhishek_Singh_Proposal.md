@@ -24,6 +24,11 @@ In addition, we also get a small summary at the [PR page](https://github.com/git
 
 ### 2. Current Code Coverage Analysis and Improvement
 
+yt is written in Python as well as Cython. Though there is already a testing framework for both, there are few key issues with them, described as follows:
+  * Code coverage in both launguages is less than X%
+  * Previous attempts have been made for Cython code coverage but that has resulted in appreciably slowing down the build runtime (done by [Kacper Kowalik](https://github.com/Xarthisius))
+  * Answer testing takes a lot of time to run
+
 Present code coverage ([with](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage_branching/index.html) and [without](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/index.html) branching) of yt is 26%. The commands used for this purpose are as follows:
 
 ```
@@ -31,11 +36,17 @@ nosetests --with-coverage --cover-inclusive --cover-erase --cover-html --cover-p
 nosetests --with-coverage --cover-branches --cover-inclusive --cover-erase --cover-html --cover-package=yt
 ```
 
-Using this analysis, I plan to identify yt modules that require more unit testing. This breakdown has been listed in [Phase 1](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-1) and [Phase 2](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-2) weekly schedule. 
+Starting point to expand test cases is by adding support for different geometries (cartesian, cylindrical, and spherical coordinates) and data styles (particle data, mesh data, including uniform resolution, octree, patch AMR, and unstructured meshes). Using the existing test functions `fake_random_ds`, `fake_amr_ds`, and `fake_particle_ds` I can define a `fake_test_datasets` generators. Using this a given functionality could be tested for different underlying geometries and data sytles.
+
+Using this analysis, I plan to identify yt modules that require more unit testing. This breakdown has been listed in [Phase 1](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-1) and [Phase 2](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-2) weekly schedule.
+
+I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and [Nose Timer](https://pypi.python.org/pypi/nose-timer) tools with the existing Nose framework. Coverage tells us which areas of code are untouched by a given code flow and thus helps in improving code coverage. Using nose-timer, we can get the runtime of a test case and thus it would help me in publishing before and after reports for test runtime.
 
 ### 3. Improving Test Runtime
 
-Test runtime could be reduced by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a pre-computed value. For example, instead of pixel by pixel comparison of images, one could compare the [perceptual hash](http://phash.org/) values.
+Test runtime could be reduced heavly by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a pre-computed value. For example:
+* Instead of pixel by pixel comparison of images, one could compare the [perceptual hash](http://phash.org/) values.
+* Using Matplotlib's [image testing](https://matplotlib.org/1.5.3/devel/testing.html) approach we can compare the gold images (known-correct images) with the generated image [ImageComparisonTest](https://github.com/matplotlib/matplotlib/blob/5e52ce11ab59176a467dd2c68db8c5e1fbc20a24/lib/matplotlib/testing/decorators.py#L282) and thus remove the current plot/image answer tests like [FieldValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L410), [AllFieldValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L443), [ProjectionValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L467), [PixelizedProjectionValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L518), [GridValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L555), [VerifySimulationSameTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L577), [GridHierarchyTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L597), [ParentageRelationshipsTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L614), [SimulatedHaloMassFunctionTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L638), [AnalyticHaloMassFunctionTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L664), [VRImageComparisonTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L710) and others.
 
 ## Schedule of Deliverables
 
@@ -45,7 +56,7 @@ Test runtime could be reduced by improving the answer testing and image comparis
     * Connect with mentors and other community members
     * Discuss more on yt's testing framework
     * Research more on effective testing frameworks
-    * Understand test code flow for different geometries (cartesian, cylindrical, and spherical coordinates) and data styles (particle data, mesh data, including uniform resolution, octree, patch AMR, and unstructured meshes)
+    * Understand test code flow for different geometries and data styles
     * Understand in detail [yt's testing framework](http://yt-project.org/doc/developing/testing.html#testing)
     * Set up a blog post and write the first blog
 
