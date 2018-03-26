@@ -386,7 +386,7 @@ Furthermore, this project touches the entire codebase of yt. It would not only h
 Given an opportunity to work on this project, I am confident with my possessed skills and the right mentorship, that I will be able to enhance yt making its developer more confident and at the same time increasing the penchant of its userbase. I believe this would be a wonderful learning opportunity for me and would be my pleasure to give back to the open source community.
 
 ## References
-I thank [Nathan Goldbaum](https://github.com/ngoldbaum) and [Colin Marc](https://github.com/colinmarc) for their valuable feedbacks for this proposal. I appreciate their help and efforts!
+I thank [Nathan Goldbaum](https://github.com/ngoldbaum) and [Colin Marc](https://github.com/colinmarc) for their valuable feedbacks on this project proposal. I appreciate their help and efforts!
 
 
 ## Appendix
