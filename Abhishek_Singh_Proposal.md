@@ -27,8 +27,7 @@ In addition, we also get a small summary at the [PR page](https://github.com/git
 Present [code coverage](https://github.com/git-abhishek/Poc-Coverage/blob/master/coverage_stats_with_ans_testing.pdf) (unit tests with answer testing in python) of yt is 25%. The commands used for this purpose are as follows:
 
 ```
-nosetests --with-coverage --cover-inclusive --cover-erase --cover-html --cover-package=yt
-nosetests --with-coverage --cover-branches --cover-inclusive --cover-erase --cover-html --cover-package=yt
+nosetests --with-coverage --with-answer-testing --cover-inclusive --cover-erase --cover-html --cover-package=yt -d -v -s
 ```
 
 yt is written in Python as well as Cython. Though there is already a testing framework for both, there are few key issues with them, described as follows:
