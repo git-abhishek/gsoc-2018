@@ -77,7 +77,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
   **Deliverables**
   
     1. Coveralls Integration
-    2. Finish up writing test cases for currently untouched code, increasing code coverage from 26% to maximum possible
+    2. Finish up writing test cases for currently untouched code, increasing code coverage from 25% to maximum possible
     3. Improve the Stream frontend by making it compatible with different geometries and data types
     4. Enhancements in data_objects, geometry, frontends, units and fields modules
   
