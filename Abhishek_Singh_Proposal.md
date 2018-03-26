@@ -286,41 +286,8 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
 [old_camera.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_volume_rendering_old_camera_py.html)
     
   * Week 8: [July 2 - July 6]
-    * Work on analysis_modules module
-    * [halo_quantities.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_quantities_py.html), 
-[contour_finder.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_level_sets_contour_finder_py.html), 
-[halo_recipes.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_recipes_py.html), 
-[halo_filters.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_filters_py.html), 
-[list_modules.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_list_modules_py.html), 
-[RadMC3DImageUtilities.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_radmc3d_export_RadMC3DImageUtilities_py.html), 
-[absorption_line.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_absorption_spectrum_absorption_line_py.html), 
-[clump_tools.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_level_sets_clump_tools_py.html), 
-[clump_validators.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_level_sets_clump_validators_py.html), 
-[halo_finding_methods.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_finding_methods_py.html), 
-[ppv_cube.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_ppv_cube_ppv_cube_py.html), 
-[clump_info_items.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_level_sets_clump_info_items_py.html), 
-[halo_catalog.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_catalog_py.html), 
-[light_cone_projection.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_cosmological_observation_light_cone_light_cone_projection_py.html), 
-[cosmology_splice.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_cosmological_observation_cosmology_splice_py.html), 
-[photon_models.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_photon_simulator_photon_models_py.html), 
-[spectral_models.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_photon_simulator_spectral_models_py.html), 
-[light_cone.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_cosmological_observation_light_cone_light_cone_py.html), 
-[RadMC3DInterface.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_radmc3d_export_RadMC3DInterface_py.html), 
-[absorption_spectrum.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_absorption_spectrum_absorption_spectrum_py.html), 
-[halo_callbacks.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_callbacks_py.html), 
-[projection.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_sunyaev_zeldovich_projection_py.html), 
-[clump_handling.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_level_sets_clump_handling_py.html), 
-[octree_subset.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_data_objects_octree_subset_py.html), 
-[sfr_spectrum.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_star_analysis_sfr_spectrum_py.html), 
-[absorption_spectrum_fit.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_absorption_spectrum_absorption_spectrum_fit_py.html), 
-[halo_mass_function.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_mass_function_halo_mass_function_py.html), 
-[light_ray.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_cosmological_observation_light_ray_light_ray_py.html), 
-[enzofof_merger_tree.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_enzofof_merger_tree_py.html), 
-[conversion_athena.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_grid_data_format_conversion_conversion_athena_py.html), 
-[sunrise_exporter.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_sunrise_export_sunrise_exporter_py.html), 
-[two_point_functions.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_two_point_functions_two_point_functions_py.html), 
-[halo_objects.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_finding_halo_objects_py.html), 
-[photon_simulator.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_photon_simulator_photon_simulator_py.html)
+    * Work on Cython modules
+    * 
     
   * Week 9: [July 9 - July 13]
     * Work on utilities module
