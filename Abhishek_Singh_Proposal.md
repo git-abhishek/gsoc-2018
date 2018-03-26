@@ -44,9 +44,14 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
 
 ### 3. Improving Test Runtime
 
-Test runtime could be reduced heavly by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a pre-computed value. For example:
+* Unit tests could be made faster by identifying the tests that are doing heavy lifting and then simplfying them. For example, tests could be using big dataset where the same could be done by using a smaller dataset. Similarly, test cases could be using a dataset when not required.
+
+* Besides the gain achieved by pruning the unit tests, **test runtime** could be reduced heavly by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a pre-computed value. For example:
 * Instead of pixel by pixel comparison of images, one could compare the [perceptual hash](http://phash.org/) values.
 * Using Matplotlib's [image testing](https://matplotlib.org/1.5.3/devel/testing.html) approach we can compare the gold images (known-correct images) with the generated image [ImageComparisonTest](https://github.com/matplotlib/matplotlib/blob/5e52ce11ab59176a467dd2c68db8c5e1fbc20a24/lib/matplotlib/testing/decorators.py#L282) and thus remove the current plot/image answer tests like [FieldValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L410), [AllFieldValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L443), [ProjectionValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L467), [PixelizedProjectionValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L518), [GridValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L555), [VerifySimulationSameTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L577), [GridHierarchyTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L597), [ParentageRelationshipsTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L614), [SimulatedHaloMassFunctionTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L638), [AnalyticHaloMassFunctionTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L664), [VRImageComparisonTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L710) and others.
+
+* As pointed by [Colin Marc](https://github.com/colinmarc), OSX runtime is more than the linux environment. One of the reasons for this is due to the `before_install` section of the travis.yml file. In OSX it takes 277.30s however, in linux it takes 7.13s (for a random run). Thus a small amount of time could be spent in this task, if its possible to reduce this and get a straight away gain of 4 minutes in each build.
+
 
 ## Schedule of Deliverables
 
@@ -63,6 +68,7 @@ Test runtime could be reduced heavly by improving the answer testing and image c
 ### **Common Task Each Week**
   
   * Write blog post showing progress, code flow understanding (1 per week)
+  * Maintain a public Wiki listing tasks done each day (everyday)
   * Write narrative documents in yt repository (if needed)
   * Work on yt's bug/issue list (optional, if time permits)
   
