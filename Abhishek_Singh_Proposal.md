@@ -53,7 +53,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
 * [Travis Parallelization](https://blog.travis-ci.com/2012-11-28-speeding-up-your-tests-by-parallelizing-them): The entire test suite could be broken into three or more independent parts as follows:
   1. simple and fast units tests
   2. answer tests
-  3. cython test cases
+  3. Cython test cases
   
   With this split we can now utilize paralleization feature provided by Travis CI. 
 
