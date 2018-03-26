@@ -248,9 +248,10 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
   
   **Deliverables**
   
-    1. Improve volume rendering and visualization modules answer testing and image comparison by an expected answer
-       of a test case
-    2. Improvement in utilities Python and Cython modules with respect to higher code coverage and reduction in test runtime
+    1. Improve volume rendering and visualization modules answer testing and image comparison by an expected
+       answer of a test case
+    2. Improvement in utilities Python and Cython modules with respect to higher code coverage and reduction 
+       in test runtime
   
   * Week 6: [June 18 - June 22]
     * Work on `visualization` module
