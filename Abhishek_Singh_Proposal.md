@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This project focuses to improve yt's test framework. At present, yt's code coverage is only 26% and the test runtime is approximately 45 minutes. The aim of this project is to increase code coverage and reduce test runtime.
+This project focuses to improve yt's test framework. At present, yt's python code coverage is only 25% (unit and answer testing) and the test runtime is approximately 45 minutes. The aim of this project is to increase code coverage and reduce test runtime.
 
 First, I propose the use of [Coveralls](https://coveralls.io/), which is a tool to monitor the code coverage and is free for open source repositories. This would not only help in analyzing the key areas that need immediate attention for coverage but will also help in maintaining higher code coverage for future developments.
 
@@ -24,21 +24,21 @@ In addition, we also get a small summary at the [PR page](https://github.com/git
 
 ### 2. Current Code Coverage Analysis and Improvement
 
-yt is written in Python as well as Cython. Though there is already a testing framework for both, there are few key issues with them, described as follows:
-  * Code coverage in both launguages is less than X%
-  * Previous attempts have been made for Cython code coverage but that has resulted in appreciably slowing down the build runtime (done by [Kacper Kowalik](https://github.com/Xarthisius))
-  * Answer testing takes a lot of time to run
-
-Present code coverage ([with](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage_branching/index.html) and [without](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/index.html) branching) of yt is 26%. The commands used for this purpose are as follows:
+Present [code coverage](https://github.com/git-abhishek/Poc-Coverage/blob/master/coverage_stats_with_ans_testing.pdf) (unit tests with answer testing in python) of yt is 25%. The commands used for this purpose are as follows:
 
 ```
 nosetests --with-coverage --cover-inclusive --cover-erase --cover-html --cover-package=yt
 nosetests --with-coverage --cover-branches --cover-inclusive --cover-erase --cover-html --cover-package=yt
 ```
 
+yt is written in Python as well as Cython. Though there is already a testing framework for both, there are few key issues with them, described as follows:
+  * Code coverage in both launguages is less than X%
+  * Previous attempts have been made for Cython code coverage but that has resulted in appreciably slowing down the build runtime (done by [Kacper Kowalik](https://github.com/Xarthisius))
+  * Answer testing takes a lot of time to run
+
 Starting point to expand test cases is by adding support for different geometries (cartesian, cylindrical, and spherical coordinates) and data styles (particle data, mesh data, including uniform resolution, octree, patch AMR, and unstructured meshes). Using the existing test functions `fake_random_ds`, `fake_amr_ds`, and `fake_particle_ds` I can define a `fake_test_datasets` generators. Using this a given functionality could be tested for different underlying geometries and data sytles.
 
-Using this analysis, I plan to identify yt modules that require more unit testing. This breakdown has been listed in [Phase 1](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-1) and [Phase 2](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-2) weekly schedule.
+Using this analysis, I plan to identify yt modules that require more unit testing. This breakdown has been listed in [Phase 1](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-1) and [Phase 2](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-2) weekly schedule. An attempt to include as much cython code as possible in the main test suite would be made, without affecting the runtime. 
 
 I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and [Nose Timer](https://pypi.python.org/pypi/nose-timer) tools with the existing Nose framework. Coverage tells us which areas of code are untouched by a given code flow and thus helps in improving code coverage. Using nose-timer, we can get the runtime of a test case and thus it would help me in publishing before and after reports for test runtime.
 
@@ -370,7 +370,7 @@ Furthermore, this project touches the entire codebase of yt. It would not only h
 Given an opportunity to work on this project, I am confident with my possessed skills and the right mentorship, that I will be able to enhance yt making its developer more confident and at the same time increasing the penchant of its userbase. I believe this would be a wonderful learning opportunity for me and would be my pleasure to give back to the open source community.
 
 ## References
-I thank [Nathan Goldbaum](https://github.com/ngoldbaum) and [Colin Marc](https://github.com/colinmarc) for their valuable feedbacks on this project proposal. I appreciate their help and efforts!
+I deeply thank [Nathan Goldbaum](https://github.com/ngoldbaum) and [Colin Marc](https://github.com/colinmarc) for their valuable feedbacks on this project proposal. I appreciate their help and efforts!
 
 
 ## Appendix
