@@ -83,7 +83,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
   
   * Week 1: [May 14 - May 18]
     * Integrate Coveralls to yt
-    * Work on data_objects module
+    * Work on `data_objects` module
     * [image_array.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_data_objects_image_array_py.html), 
 [region_expression.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_data_objects_region_expression_py.html), 
 [particle_filters.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_data_objects_particle_filters_py.html), 
@@ -102,7 +102,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
 [construction_data_containers.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_data_objects_construction_data_containers_py.html)
 
   * Week 2: [May 21 - May 25]
-    * Work on geometry module
+    * Work on `geometry` module
     * [oct_geometry_handler.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_geometry_oct_geometry_handler_py.html), 
 [unstructured_mesh_handler.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_geometry_unstructured_mesh_handler_py.html), 
 [particle_geometry_handler.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_geometry_particle_geometry_handler_py.html), 
@@ -119,7 +119,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
         
         
   * Week 3: [May 28 - June 1]
-    * Work on frontends module
+    * Work on `frontends` module
     * [fields.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_frontends_sph_fields_py.html), 
 [data_structures.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_frontends_sph_data_structures_py.html), 
 [definitions.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_frontends_rockstar_definitions_py.html), 
@@ -215,7 +215,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
     * Cython Code: artio/_artio_caller.pyx
     
   * Week 4: [June 4 - June 8]
-    * Work on units module
+    * Work on `units` module
     * [pint_conversions.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_units_pint_conversions_py.html), 
 [unit_registry.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_units_unit_registry_py.html), 
 [dimensions.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_units_dimensions_py.html), 
@@ -225,7 +225,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
 [yt_array.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_units_yt_array_py.html)
     
   * Week 5: [June 11 - June 15]
-    * Work on fields module
+    * Work on `fields` module
     * [cosmology_fields.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_fields_cosmology_fields_py.html), 
 [astro_fields.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_fields_astro_fields_py.html), 
 [field_plugin_registry.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_fields_field_plugin_registry_py.html), 
@@ -250,10 +250,10 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
   
     1. Improve volume rendering and visualization modules answer testing and image comparison by an expected answer
        of a test case
-    2. Improvement in utilitie Python and Cython modules with respect to higher code coverage and reduction in test runtime
+    2. Improvement in utilities Python and Cython modules with respect to higher code coverage and reduction in test runtime
   
   * Week 6: [June 18 - June 22]
-    * Work on visualization module
+    * Work on `visualization` module
     * [particle_plots.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_particle_plots_py.html), 
 [line_plot.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_line_plot_py.html), 
 [tick_locators.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_tick_locators_py.html), 
@@ -269,7 +269,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
 [plot_modifications.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_plot_modifications_py.html)
     
   * Week 7: [June 25 - June 29]
-    * Work on visualization_volume_rendering module
+    * Work on `visualization_volume_rendering` module
     * [volume_rendering.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_volume_rendering_volume_rendering_py.html), 
 [blenders.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_volume_rendering_blenders_py.html), 
 [off_axis_projection.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_volume_rendering_off_axis_projection_py.html), 
@@ -289,7 +289,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
 [old_camera.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_volume_rendering_old_camera_py.html)
     
   * Week 8: [July 2 - July 6]
-    * Work on utilities module
+    * Work on `utilities` module
     * [hierarchy_inspection.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_hierarchy_inspection_py.html), 
 [chemical_formulas.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_chemical_formulas_py.html), 
 [orientation.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_orientation_py.html), 
@@ -331,7 +331,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
     
 
 * Week 9: [July 9 - July 13]
-    * Work on Cython utilities module
+    * Work on Cython `utilities` module
     * allocation_container.pyx, alt_ray_tracers.pyx, amr_kdtools.pyx, autogenerated_element_samplers.pyx, basic_octree.pyx, bitarray.pyx, bounding_volume_hierarchy.pyx, contour_finding.pyx, cosmology_time.pyx, depth_first_octree.pyx, distance_queue.pyx, element_mappings.pyx, fnv_hash.pyx, fortran_reader.pyx, geometry_utils.pyx, grid_traversal.pyx, image_samplers.pyx, image_utilities.pyx, interpolators.pyx, lenses.pyx, line_integral_convolution.pyx, marching_cubes.pyx, mesh_triangulation.pyx, mesh_utilities.pyx, misc_utilities.pyx, origami.pyx, particle_mesh_operations.pyx, partitioned_grid.pyx, pixelization_routines.pyx, points_in_volume.pyx, primitives.pyx, quad_tree.pyx, ragged_arrays.pyx, write_array.pyx
     
 ### **Final Week**
