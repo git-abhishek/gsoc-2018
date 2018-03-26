@@ -6,7 +6,7 @@ This project focuses to improve yt's test framework. At present, yt's code cover
 
 First, I propose the use of [Coveralls](https://coveralls.io/), which is a tool to monitor the code coverage and is free for open source repositories. This would not only help in analyzing the key areas that need immediate attention for coverage but will also help in maintaining higher code coverage for future developments.
 
-yt's test suite could be divided into three areas, namely, python unit tests, cython test cases and answer testing. I will enhance the yt test suite by writing test cases for the flows that are not being tested currently. Runtime of tests could be improved by optimizing (or reducing) answer testing and image comparisons tests for visualization and volume rendering modules. This project also focuses on streamlining test cases for different geometries and data styles to improve runtime of tests. Furthermore, runtime of test suites vary on linux and OSX and gives us a scope of improvement.
+yt's test suite could be divided into three areas, namely, python unit tests, cython test cases and answer testing. I will enhance the yt test suite by writing test cases for the flows that are not being tested currently. Runtime of tests could be improved by optimizing (or reducing) answer testing and image comparisons tests for visualization and volume rendering modules. This project also focuses on streamlining test cases for different geometries and data styles to improve runtime of tests. Furthermore, runtime of test suites vary on linux and OSX and giving us a scope of improvement.
 
 ## Technical Details
 
