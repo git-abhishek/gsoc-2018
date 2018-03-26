@@ -79,6 +79,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
     1. Coveralls Integration
     2. Finish up writing test cases for currently untouched code, increasing code coverage from 26% to maximum possible
     3. Improve the Stream frontend by making it compatible with different geometries and data types
+    4. Enhancements in data_objects, geometry, frontends, units and fields modules
   
   * Week 1: [May 14 - May 18]
     * Integrate Coveralls to yt
@@ -249,8 +250,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
   
     1. Improve volume rendering and visualization modules answer testing and image comparison by an expected answer
        of a test case
-    2. Decrease test runtime proportionally (that is 26% code coverage runs in ~45 mins, final test runtime could
-       be more but due to increased code coverage)
+    2. Improvement in utilites python and cython modules with respect to higher code coverage and reduction in test runtime
   
   * Week 6: [June 18 - June 22]
     * Work on visualization module
