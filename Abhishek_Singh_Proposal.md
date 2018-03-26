@@ -32,7 +32,7 @@ nosetests --with-coverage --with-answer-testing --cover-inclusive --cover-erase 
 ```
 
 yt is written in Python as well as Cython. Though there is already a testing framework for both, there are few key issues with them, described as follows:
-  * Code coverage in both languages is less than X%
+  * Expected Code coverage in both languages is less than 15%
   * Previous attempts have been made for Cython code coverage but that has resulted in appreciably slowing down the build runtime (done by [Kacper Kowalik](https://github.com/Xarthisius))
   * Answer testing takes a lot of time to run
 
@@ -41,6 +41,8 @@ Starting point to expand test cases is by adding support for different geometrie
 With this analysis, I plan to identify yt modules that require more unit testing. This breakdown has been listed in [Phase 1](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-1) and [Phase 2](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-2) weekly schedule. An attempt to include as much cython code as possible in the main test suite would be made, without affecting the runtime. 
 
 I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and [Nose Timer](https://pypi.Python.org/pypi/nose-timer) tools with the existing Nose framework. Coverage tells us which areas of code are untouched by a given code flow and thus helps in improving code coverage. Using nose-timer, we can get the runtime of a test case and thus it would help me in publishing before and after reports for test runtime.
+
+Note: Exact Cython code coverage analysis results could not be included in the report; even if we include this coverage with the Python's coverage the overall coverage would be less than 30%. 
 
 ### 3. Improving Test Runtime
 
