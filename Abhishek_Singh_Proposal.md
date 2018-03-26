@@ -114,7 +114,7 @@ I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and 
 [object_finding_mixin.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_geometry_object_finding_mixin_py.html), 
 [geographic_coordinates.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_geometry_coordinates_geographic_coordinates_py.html), 
 [geometry_handler.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_geometry_geometry_handler_py.html)
-        * Cython Code: fake_octree.pyx, grid_container.pyx, grid_visitors.pyx, oct_container.pyx, oct_visitors.pyx, particle_deposit.pyx, particle_oct_container.pyx, particle_smooth.pyx, selection_routines.pyx
+    * Cython Code: fake_octree.pyx, grid_container.pyx, grid_visitors.pyx, oct_container.pyx, oct_visitors.pyx, particle_deposit.pyx, particle_oct_container.pyx, particle_smooth.pyx, selection_routines.pyx
         
         
   * Week 3: [May 28 - June 1]
