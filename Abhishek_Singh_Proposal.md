@@ -57,7 +57,7 @@ Note: Exact Cython code coverage analysis results could not be included in the r
   2. answer tests
   3. Cython test cases
   
-  With this split we can now utilize paralleization feature provided by Travis CI. 
+  With this split we can now utilize parallelization feature provided by Travis CI. 
 
 
 * As pointed by [Colin Marc](https://github.com/colinmarc), OSX runtime is more than the Linux environment. One of the reasons for this is due to the `before_install` section of the travis.yml file. In [OSX](https://travis-ci.org/yt-project/yt/jobs/355567514) it takes 277.30s however, in [Linux](https://travis-ci.org/yt-project/yt/jobs/355567513) it takes 7.13s (for a random run). Thus a small amount of time could be spent on this task to see if it is feasible to reduce and get immediately a gain of 4 minutes in each build.
