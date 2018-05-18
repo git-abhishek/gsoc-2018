@@ -2,11 +2,11 @@
 
 ## Abstract
 
-This project focuses to improve yt's test framework. At present, yt's code coverage is only 26% and the test runtime is approximately 45 minutes. The aim of this project is to increase code coverage and reduce test runtime.
+This project focuses to improve yt's test framework. At present, yt's Python code coverage is only 25% (unit and answer testing) and the test runtime is approximately 45 minutes. The aim of this project is to increase code coverage and reduce test runtime.
 
 First, I propose the use of [Coveralls](https://coveralls.io/), which is a tool to monitor the code coverage and is free for open source repositories. This would not only help in analyzing the key areas that need immediate attention for coverage but will also help in maintaining higher code coverage for future developments.
 
-Next, I will enhance the yt test suite by writing test cases for the flows that are not being tested currently. Runtime of tests could be improved by optimizing (or reducing) answer testing and image comparisons tests for visualization and volume rendering modules. This project also focuses on streamlining test cases for different geometries and data styles.
+yt's test suite could be divided into three areas, namely, Python unit tests, Cython test cases and answer testing. I will enhance the yt test suite by writing test cases for the flows that are not being tested currently. Runtime of tests could be improved by optimizing (or reducing) answer testing and image comparisons tests for visualization and volume rendering modules. This project also focuses on streamlining test cases for different geometries and data styles to improve the runtime of tests. Furthermore, the runtime of test suites varies on Linux and OSX, thereby giving us a scope of improvement.
 
 ## Technical Details
 
@@ -16,26 +16,50 @@ Coveralls is a tool to analyze code coverage with each pull request. The main ad
 
 I created a sample [GitHub project](https://github.com/git-abhishek/Poc-Coverage) to show Coveralls integration with Travis CI. Initially, I created two functions ``add(a,b)`` and ``sub(a,b)`` with a unit test case for only ``add`` function. Due to this, the code coverage came out to be 86%. Then I created a PR to add the test case for ``sub(a,b)`` function. The effect of this PR could be easily analyzed at the [coveralls build page](https://coveralls.io/builds/16036140).
 
-![Fig 1. Coveralls build page for the PR](https://github.com/git-abhishek/Poc-Coverage/blob/master/image/covealls%20build%20of%20PR.PNG "Fig 1. Coveralls build page for the PR")
 
 In addition, we also get a small summary at the [PR page](https://github.com/git-abhishek/Poc-Coverage/pull/2) depicting the overall code coverage owing to these changes. Using this we can easily track if the new changes are being properly tested or not, whether code coverage is improving which each commit or not.
 
-![Fig 2. Coveralls summary at the PR page](https://github.com/git-abhishek/Poc-Coverage/blob/master/image/Coverage%20Summary%20PR.PNG "Fig 2. Coveralls summary at the PR page")
 
 ### 2. Current Code Coverage Analysis and Improvement
 
-Present code coverage ([with](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage_branching/index.html) and [without](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/index.html) branching) of yt is 26%. The commands used for this purpose are as follows:
+Present [code coverage](https://github.com/git-abhishek/Poc-Coverage/blob/master/coverage_stats_with_ans_testing.pdf) (unit tests with answer testing in Python) of yt is 25%. The commands used for this purpose are as follows:
 
 ```
-nosetests --with-coverage --cover-inclusive --cover-erase --cover-html --cover-package=yt
-nosetests --with-coverage --cover-branches --cover-inclusive --cover-erase --cover-html --cover-package=yt
+nosetests --with-coverage --with-answer-testing --cover-inclusive --cover-erase --cover-html \
+          --cover-package=yt -d -v -s
 ```
 
-Using this analysis, I plan to identify yt modules that require more unit testing. This breakdown has been listed in [Phase 1](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-1) and [Phase 2](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-2) weekly schedule. 
+yt is written in Python as well as Cython. Though there is already a testing framework for both, there are few key issues with them, described as follows:
+  * Expected Code coverage in both languages is less than 15%
+  * Previous attempts have been made for Cython code coverage but that has resulted in appreciably slowing down the build runtime (done by [Kacper Kowalik](https://github.com/Xarthisius))
+  * Answer testing takes a lot of time to run
+
+Starting point to expand test cases is by adding support for different geometries (cartesian, cylindrical, and spherical coordinates) and data styles (particle data, mesh data, including uniform resolution, octree, patch AMR, and unstructured meshes). Using the existing test functions `fake_random_ds`, `fake_amr_ds`, and `fake_particle_ds` I can define a `fake_test_datasets` generators. Using this a given functionality could be tested for different underlying geometries and data styles.
+
+With this analysis, I plan to identify yt modules that require more unit testing. This breakdown has been listed in [Phase 1](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-1) and [Phase 2](https://github.com/git-abhishek/gsoc-2018/blob/master/Abhishek_Singh_Proposal.md#phase-2) weekly schedule. An attempt to include as much cython code as possible in the main test suite would be made, without affecting the runtime. 
+
+I aim to use [Coverage](https://coverage.readthedocs.io/en/coverage-4.5.1/) and [Nose Timer](https://pypi.Python.org/pypi/nose-timer) tools with the existing Nose framework. Coverage tells us which areas of code are untouched by a given code flow and thus helps in improving code coverage. Using nose-timer, we can get the runtime of a test case and thus it would help me in publishing before and after reports for test runtime.
+
+Note: Exact Cython code coverage analysis results could not be included in the report; even if we include this coverage with the Python's coverage the overall coverage would be less than 30%. 
 
 ### 3. Improving Test Runtime
 
-Test runtime could be reduced by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a pre-computed value. For example, instead of pixel by pixel comparison of images, one could compare the [perceptual hash](http://phash.org/) values.
+* Unit tests could be made faster by identifying the tests that are doing the heavy lifting and then simplifying them. For example, tests could be using big dataset where the same could be done by using a smaller dataset. Similarly, test cases could be using a dataset when not required.
+
+* Besides the gain achieved by pruning the unit tests, **test runtime** could be reduced heavily by improving the answer testing and image comparison tests. Instead of these heavy tests, expected values of the function could be compared with a pre-computed value. For example:
+  * Instead of pixel-by-pixel comparison of images, one could compare the [perceptual hash](http://phash.org/) values.
+  * Using Matplotlib's [image testing](https://matplotlib.org/1.5.3/devel/testing.html) approach we can compare the gold images (known-correct images) with the generated image ([ImageComparisonTest](https://github.com/matplotlib/matplotlib/blob/5e52ce11ab59176a467dd2c68db8c5e1fbc20a24/lib/matplotlib/testing/decorators.py#L282)) and thus remove the current plot/image answer tests like [FieldValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L410), [AllFieldValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L443), [ProjectionValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L467), [PixelizedProjectionValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L518), [GridValuesTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L555), [VerifySimulationSameTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L577), [GridHierarchyTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L597), [ParentageRelationshipsTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L614), [SimulatedHaloMassFunctionTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L638), [AnalyticHaloMassFunctionTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L664), [VRImageComparisonTest](https://github.com/yt-project/yt/blob/51cf1ce0825dd1e9ef6bbbf8e9a83a82a768cd7e/yt/utilities/answer_testing/framework.py#L710) and others.
+
+* [Travis Parallelization](https://blog.travis-ci.com/2012-11-28-speeding-up-your-tests-by-parallelizing-them): The entire test suite could be broken into three or more independent parts as follows:
+  1. simple and fast units tests
+  2. answer tests
+  3. Cython test cases
+  
+  With this split we can now utilize parallelization feature provided by Travis CI. 
+
+
+* As pointed by [Colin Marc](https://github.com/colinmarc), OSX runtime is more than the Linux environment. One of the reasons for this is due to the `before_install` section of the travis.yml file. In [OSX](https://travis-ci.org/yt-project/yt/jobs/355567514) it takes 277.30s however, in [Linux](https://travis-ci.org/yt-project/yt/jobs/355567513) it takes 7.13s (for a random run). Thus a small amount of time could be spent on this task to see if it is feasible to reduce and get immediately a gain of 4 minutes in each build.
+
 
 ## Schedule of Deliverables
 
@@ -45,13 +69,14 @@ Test runtime could be reduced by improving the answer testing and image comparis
     * Connect with mentors and other community members
     * Discuss more on yt's testing framework
     * Research more on effective testing frameworks
-    * Understand test code flow for different geometries (cartesian, cylindrical, and spherical coordinates) and data styles (particle data, mesh data, including uniform resolution, octree, patch AMR, and unstructured meshes)
+    * Understand test code flow for different geometries and data styles
     * Understand in detail [yt's testing framework](http://yt-project.org/doc/developing/testing.html#testing)
     * Set up a blog post and write the first blog
 
 ### **Common Task Each Week**
   
   * Write blog post showing progress, code flow understanding (1 per week)
+  * Maintain a public Wiki listing tasks done each day (every day)
   * Write narrative documents in yt repository (if needed)
   * Work on yt's bug/issue list (optional, if time permits)
   
@@ -60,12 +85,13 @@ Test runtime could be reduced by improving the answer testing and image comparis
   **Deliverables**
   
     1. Coveralls Integration
-    2. Finish up writing test cases for currently untouched code, increasing code coverage from 26% to maximum possible
+    2. Finish up writing test cases for currently untouched code, increasing code coverage from 25% to maximum possible
     3. Improve the Stream frontend by making it compatible with different geometries and data types
+    4. Enhancements in data_objects, geometry, frontends, units and fields modules
   
   * Week 1: [May 14 - May 18]
     * Integrate Coveralls to yt
-    * Work on data_objects module
+    * Work on `data_objects` module
     * [image_array.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_data_objects_image_array_py.html), 
 [region_expression.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_data_objects_region_expression_py.html), 
 [particle_filters.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_data_objects_particle_filters_py.html), 
@@ -84,7 +110,7 @@ Test runtime could be reduced by improving the answer testing and image comparis
 [construction_data_containers.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_data_objects_construction_data_containers_py.html)
 
   * Week 2: [May 21 - May 25]
-    * Work on geometry module
+    * Work on `geometry` module
     * [oct_geometry_handler.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_geometry_oct_geometry_handler_py.html), 
 [unstructured_mesh_handler.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_geometry_unstructured_mesh_handler_py.html), 
 [particle_geometry_handler.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_geometry_particle_geometry_handler_py.html), 
@@ -97,9 +123,11 @@ Test runtime could be reduced by improving the answer testing and image comparis
 [object_finding_mixin.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_geometry_object_finding_mixin_py.html), 
 [geographic_coordinates.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_geometry_coordinates_geographic_coordinates_py.html), 
 [geometry_handler.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_geometry_geometry_handler_py.html)
-    
+    * Cython Code: fake_octree.pyx, grid_container.pyx, grid_visitors.pyx, oct_container.pyx, oct_visitors.pyx, particle_deposit.pyx, particle_oct_container.pyx, particle_smooth.pyx, selection_routines.pyx
+        
+        
   * Week 3: [May 28 - June 1]
-    * Work on frontends module
+    * Work on `frontends` module
     * [fields.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_frontends_sph_fields_py.html), 
 [data_structures.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_frontends_sph_data_structures_py.html), 
 [definitions.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_frontends_rockstar_definitions_py.html), 
@@ -192,9 +220,10 @@ Test runtime could be reduced by improving the answer testing and image comparis
 [data_structures.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_frontends_enzo_data_structures_py.html), 
 [data_structures.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_frontends_art_data_structures_py.html), 
 [data_structures.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_frontends_boxlib_data_structures_py.html)
+    * Cython Code: artio/_artio_caller.pyx
     
   * Week 4: [June 4 - June 8]
-    * Work on units module
+    * Work on `units` module
     * [pint_conversions.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_units_pint_conversions_py.html), 
 [unit_registry.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_units_unit_registry_py.html), 
 [dimensions.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_units_dimensions_py.html), 
@@ -204,7 +233,7 @@ Test runtime could be reduced by improving the answer testing and image comparis
 [yt_array.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_units_yt_array_py.html)
     
   * Week 5: [June 11 - June 15]
-    * Work on fields module
+    * Work on `fields` module
     * [cosmology_fields.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_fields_cosmology_fields_py.html), 
 [astro_fields.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_fields_astro_fields_py.html), 
 [field_plugin_registry.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_fields_field_plugin_registry_py.html), 
@@ -227,13 +256,13 @@ Test runtime could be reduced by improving the answer testing and image comparis
   
   **Deliverables**
   
-    1. Improve volume rendering and visualization modules answer testing and image comparison by an expected answer
-       of a test case
-    2. Decrease test runtime proportionally (that is 26% code coverage runs in ~45 mins, final test runtime could
-       be more but due to increased code coverage)
+    1. Improve volume rendering and visualization modules answer testing and image comparison by an expected
+       answer of a test case
+    2. Improvement in utilities Python and Cython modules with respect to higher code coverage and reduction 
+       in test runtime
   
   * Week 6: [June 18 - June 22]
-    * Work on visualization module
+    * Work on `visualization` module
     * [particle_plots.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_particle_plots_py.html), 
 [line_plot.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_line_plot_py.html), 
 [tick_locators.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_tick_locators_py.html), 
@@ -249,7 +278,7 @@ Test runtime could be reduced by improving the answer testing and image comparis
 [plot_modifications.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_plot_modifications_py.html)
     
   * Week 7: [June 25 - June 29]
-    * Work on visualization_volume_rendering module
+    * Work on `visualization_volume_rendering` module
     * [volume_rendering.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_volume_rendering_volume_rendering_py.html), 
 [blenders.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_volume_rendering_blenders_py.html), 
 [off_axis_projection.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_volume_rendering_off_axis_projection_py.html), 
@@ -269,44 +298,7 @@ Test runtime could be reduced by improving the answer testing and image comparis
 [old_camera.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_visualization_volume_rendering_old_camera_py.html)
     
   * Week 8: [July 2 - July 6]
-    * Work on analysis_modules module
-    * [halo_quantities.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_quantities_py.html), 
-[contour_finder.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_level_sets_contour_finder_py.html), 
-[halo_recipes.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_recipes_py.html), 
-[halo_filters.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_filters_py.html), 
-[list_modules.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_list_modules_py.html), 
-[RadMC3DImageUtilities.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_radmc3d_export_RadMC3DImageUtilities_py.html), 
-[absorption_line.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_absorption_spectrum_absorption_line_py.html), 
-[clump_tools.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_level_sets_clump_tools_py.html), 
-[clump_validators.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_level_sets_clump_validators_py.html), 
-[halo_finding_methods.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_finding_methods_py.html), 
-[ppv_cube.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_ppv_cube_ppv_cube_py.html), 
-[clump_info_items.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_level_sets_clump_info_items_py.html), 
-[halo_catalog.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_catalog_py.html), 
-[light_cone_projection.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_cosmological_observation_light_cone_light_cone_projection_py.html), 
-[cosmology_splice.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_cosmological_observation_cosmology_splice_py.html), 
-[photon_models.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_photon_simulator_photon_models_py.html), 
-[spectral_models.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_photon_simulator_spectral_models_py.html), 
-[light_cone.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_cosmological_observation_light_cone_light_cone_py.html), 
-[RadMC3DInterface.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_radmc3d_export_RadMC3DInterface_py.html), 
-[absorption_spectrum.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_absorption_spectrum_absorption_spectrum_py.html), 
-[halo_callbacks.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_halo_callbacks_py.html), 
-[projection.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_sunyaev_zeldovich_projection_py.html), 
-[clump_handling.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_level_sets_clump_handling_py.html), 
-[octree_subset.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_data_objects_octree_subset_py.html), 
-[sfr_spectrum.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_star_analysis_sfr_spectrum_py.html), 
-[absorption_spectrum_fit.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_absorption_spectrum_absorption_spectrum_fit_py.html), 
-[halo_mass_function.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_mass_function_halo_mass_function_py.html), 
-[light_ray.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_cosmological_observation_light_ray_light_ray_py.html), 
-[enzofof_merger_tree.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_analysis_enzofof_merger_tree_py.html), 
-[conversion_athena.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_grid_data_format_conversion_conversion_athena_py.html), 
-[sunrise_exporter.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_sunrise_export_sunrise_exporter_py.html), 
-[two_point_functions.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_two_point_functions_two_point_functions_py.html), 
-[halo_objects.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_halo_finding_halo_objects_py.html), 
-[photon_simulator.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_analysis_modules_photon_simulator_photon_simulator_py.html)
-    
-  * Week 9: [July 9 - July 13]
-    * Work on utilities module
+    * Work on `utilities` module
     * [hierarchy_inspection.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_hierarchy_inspection_py.html), 
 [chemical_formulas.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_chemical_formulas_py.html), 
 [orientation.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_orientation_py.html), 
@@ -327,17 +319,14 @@ Test runtime could be reduced by improving the answer testing and image comparis
 [logger.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_logger_py.html), 
 [performance_counters.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_performance_counters_py.html), 
 [mesh_code_generation.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_mesh_code_generation_py.html), 
-[streaminghttp.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_poster_streaminghttp_py.html), 
 [libconfig.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_pyparselibconfig_libconfig_py.html), 
 [cosmology.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_cosmology_py.html), 
 [rpdb.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_rpdb_py.html), 
 [io_handler.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_io_handler_py.html), 
 [fortran_utils.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_fortran_utils_py.html), 
-[lru_cache.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_lru_cache_py.html), 
 [io_runner.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_parallel_tools_io_runner_py.html), 
 [task_queue.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_parallel_tools_task_queue_py.html), 
 [parameter_file_storage.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_parameter_file_storage_py.html), 
-[lodgeit.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_lodgeit_py.html), 
 [encode.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_poster_encode_py.html), 
 [math_utils.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_math_utils_py.html), 
 [on_demand_imports.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_on_demand_imports_py.html), 
@@ -350,6 +339,10 @@ Test runtime could be reduced by improving the answer testing and image comparis
 [command_line.py](https://cdn.rawgit.com/git-abhishek/Poc-Coverage/cb7e62e4/coverage/code_coverage/yt_utilities_command_line_py.html)
     
 
+* Week 9: [July 9 - July 13]
+    * Work on Cython `utilities` module
+    * allocation_container.pyx, alt_ray_tracers.pyx, amr_kdtools.pyx, autogenerated_element_samplers.pyx, basic_octree.pyx, bitarray.pyx, bounding_volume_hierarchy.pyx, contour_finding.pyx, cosmology_time.pyx, depth_first_octree.pyx, distance_queue.pyx, element_mappings.pyx, fnv_hash.pyx, fortran_reader.pyx, geometry_utils.pyx, grid_traversal.pyx, image_samplers.pyx, image_utilities.pyx, interpolators.pyx, lenses.pyx, line_integral_convolution.pyx, marching_cubes.pyx, mesh_triangulation.pyx, mesh_utilities.pyx, misc_utilities.pyx, origami.pyx, particle_mesh_operations.pyx, partitioned_grid.pyx, pixelization_routines.pyx, points_in_volume.pyx, primitives.pyx, quad_tree.pyx, ragged_arrays.pyx, write_array.pyx
+    
 ### **Final Week**
 
   * Week 10: [July 16 - July 20]
@@ -371,7 +364,7 @@ Test runtime could be reduced by improving the answer testing and image comparis
 
 I have 3 years 3 months of work experience as a software developer engineer at various technology [companies](#3-work-experience). During these years, I worked on many different technologies ranging from Java, Python, C/C++/C#, ASP.NET, SQL to JavaScript, jQuery, HTML/CSS and learned many frameworks. This experience has not only made me a better developer but also taught me to reach for coding excellence. It exposed me to the skills that make a developer complete like working in global teams, timely delivery of production code in large codebases and taking product ownership. Thus, I feel I am competent enough to work on this project.
 
-As part of my coursework in [Neural Networks](https://compsci682.github.io/), I implemented deep learning library in python. For the course [Applied Information Retrieval](http://ciir.cs.umass.edu/~dfisher/cs546/syllabus.html), I created a toy search engine in Java that could efficiently index the corpus and return ranked query results. This semester in [AI](http://rbr.cs.umass.edu/shlomo/classes/683/index.html) I am implementing search algorithms like A*, constraint satisfaction problems, minimax adversarial search and others. In [Intelligent Visual Computing](https://people.cs.umass.edu/~kalo/courses/visual_computing/index.html) I am writing Matlab code for 3D shape reconstruction, deepnet eye detector, and marching cubes. Furthermore, I am implementing a simulator based [robot](http://www-robotics.cs.umass.edu/~grupen/603/handouts/syllabus.html) in C with 9 degrees of freedom. Since all these projects are forbidden to be shared publicly, I do not have them on GitHub. (I will be required to take professors' permission, in case I need to send it privately to the reviewers.)    
+As part of my coursework in [Neural Networks](https://compsci682.github.io/), I implemented deep learning library in Python. For the course [Applied Information Retrieval](http://ciir.cs.umass.edu/~dfisher/cs546/syllabus.html), I created a toy search engine in Java that could efficiently index the corpus and return ranked query results. This semester in [AI](http://rbr.cs.umass.edu/shlomo/classes/683/index.html) I am implementing search algorithms like A*, constraint satisfaction problems, minimax adversarial search and others. In [Intelligent Visual Computing](https://people.cs.umass.edu/~kalo/courses/visual_computing/index.html) I am writing Matlab code for 3D shape reconstruction, deepnet eye detector, and marching cubes. Furthermore, I am implementing a simulator based [robot](http://www-robotics.cs.umass.edu/~grupen/603/handouts/syllabus.html) in C with 9 degrees of freedom. Since all these projects are forbidden to be shared publicly, I do not have them on GitHub. (I will be required to take professors' permission, in case I need to send it privately to the reviewers.)    
 
 yt is my first open source community and thus I do not have any contributions that are publicly available. However, I have made 2 PRs for yt till now fixing issues [#1680](https://github.com/yt-project/yt/issues/1680) and [#1599](https://github.com/yt-project/yt/pull/1705).
 
@@ -384,6 +377,10 @@ Increasing code coverage at the same time reducing proportional test runtime mak
 Furthermore, this project touches the entire codebase of yt. It would not only help me understand yt better but would also make me competent to keep contributing in future. I believe when one knows the end-to-end of a system, then one can think of innovative and polished solutions of the shortcomings in the system.
 
 Given an opportunity to work on this project, I am confident with my possessed skills and the right mentorship, that I will be able to enhance yt making its developer more confident and at the same time increasing the penchant of its userbase. I believe this would be a wonderful learning opportunity for me and would be my pleasure to give back to the open source community.
+
+## References
+I deeply thank [Nathan Goldbaum](https://github.com/ngoldbaum) and [Colin Marc](https://github.com/colinmarc) for their valuable feedback on this project proposal. I appreciate their help and efforts!
+
 
 ## Appendix
 ### 1. Personal Details
